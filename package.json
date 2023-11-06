@@ -1,0 +1,18 @@
+{
+  "name": "fix-insensitive-import",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "fix insensitive import caused by FS like windows",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "babel-node  babel-node index.js"
+  },
+  "author": "Mohamed JOLTI",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/node": "^7.22.19",
+    "@babel/preset-env": "^7.23.2"
+  }
+}
