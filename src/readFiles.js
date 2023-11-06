@@ -1,5 +1,5 @@
 import { processFile } from "./processFile.js";
-import fs, { cp } from 'fs';
+import fs from 'fs';
 import { PATH_SEPARTOR } from "./constants.js";
 import { reportOnError } from "./tools/reportOnError.js";
 import { Logger } from "./logger/Logger.js";
