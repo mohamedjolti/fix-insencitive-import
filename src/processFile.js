@@ -9,7 +9,6 @@ import { reportOnError } from './tools/reportOnError.js';
 
 const ERROR_EVENT = "error";
 const CLOSE_EVENT = "close";
-const END_EVENT = "end";
 const LINE_EVENT = "line";
 const UTF_8_ENCODING = 'utf8';
 
@@ -35,7 +34,7 @@ export const processFile = async function (fileName, logger) {
          */
         lineReader.on(LINE_EVENT, function (line) {
             if(shouldHandleLine(line)){
-                const handledLine = handleLine(line);
+                const handledLine = handleLine(line, fileName);
                 lines.push(handledLine);
             }else{
                 lines.push(line);
@@ -47,9 +46,6 @@ export const processFile = async function (fileName, logger) {
             replaceContentOfFile(fileName, lines);
             resolve(true);
         });
-        fileStream.on(END_EVENT, function () {
-
-        })
         fileStream.on(ERROR_EVENT, function (error) {
             reportOnError(error);
         })

@@ -6,18 +6,12 @@ const LINE_BREAK = "\n";
 
 
 export class Logger {
-    /**
-     * Drivers for logs
-     * If the file driver is used , the logs will be written in a log file
-     * If the console driver is used , the logs will be displayed in the console
-     */
-    static CONSOLE_LOG_DRIVER = "CONSOLE_LOG_DRIVER";
-    static FILE_LOG_DRIVER = "FILE_LOG_DRIVER";
+
 
     constructor() {
         const FILE_NAME = LOG_FILE_NAME + getCurretDate() + LOG_EXTENSION
-        this.setLogFileName(FILE_NAME);
         createFile(FILE_NAME);
+        this.setLogFileName(FILE_NAME);
     }
     /**
      * 
