@@ -1,4 +1,5 @@
 import { Logger } from "../logger/Logger.js";
+import { LoggerLevels } from "../logger/LoggerLevels.js";
 
 /**
  * 
@@ -7,7 +8,7 @@ import { Logger } from "../logger/Logger.js";
  */
 export const reportOnError = function(error, logger){
     if(logger){
-        return logger.log(error)
+        return logger.log(error, LoggerLevels.ERROR);
     }
     console.log(error);
 }

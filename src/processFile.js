@@ -32,9 +32,9 @@ export const processFile = async function (fileName, logger) {
          * If yes we change line and we push it to the lines array
          * If not we push it wihout change
          */
-        lineReader.on(LINE_EVENT, function (line) {
+        lineReader.on(LINE_EVENT, async function (line) {
             if(shouldHandleLine(line)){
-                const handledLine = handleLine(line, fileName);
+                const handledLine = await handleLine(line, fileName);
                 lines.push(handledLine);
             }else{
                 lines.push(line);

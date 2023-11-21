@@ -1,6 +1,7 @@
 import { LOG_EXTENSION, LOG_FILE_NAME } from "../constants.js";
 import { createFile } from "../tools/createFile.js";
 import { writeInFile } from "../tools/writeInFile.js";
+import { LoggerLevels } from "./LoggerLevels.js";
 
 const LINE_BREAK = "\n";
 
@@ -30,8 +31,9 @@ export class Logger {
     /**
      * 
      * @param {string} message 
+     * @param {string} level
      */
-    async log(message) {
+    async log(message, level = LoggerLevels.INFO) {
         return await writeInFile(this.getLogFileName(), formatLogMessage(message));
     }
 }
