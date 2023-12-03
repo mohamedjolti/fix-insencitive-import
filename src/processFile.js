@@ -1,5 +1,5 @@
 import fs from 'fs';
-import readline from 'readline';
+import LineByLineReader from 'line-by-line';
 import { handleLine } from './handleLine.js';
 import { Logger } from './logger/Logger.js';
 import { shouldHandleLine } from './shouldHandleLine.js';
@@ -8,7 +8,7 @@ import { reportOnError } from './tools/reportOnError.js';
 
 
 const ERROR_EVENT = "error";
-const CLOSE_EVENT = "close";
+const END_EVENT = "end";
 const LINE_EVENT = "line";
 const UTF_8_ENCODING = 'utf8';
 
@@ -23,9 +23,7 @@ export const processFile = async function (fileName, logger) {
         let lines = [];
         logger.log("start handling file " + fileName);
         const fileStream = fs.createReadStream(fileName, { encoding: UTF_8_ENCODING });
-        var lineReader = readline.createInterface({
-            input: fileStream
-        });
+        const lineReader = new  LineByLineReader(fileName);
     
         /**
          * For each line we will check is we should handled it
@@ -33,21 +31,29 @@ export const processFile = async function (fileName, logger) {
          * If not we push it wihout change
          */
         lineReader.on(LINE_EVENT, async function (line) {
-            if(shouldHandleLine(line)){
-                const handledLine = await handleLine(line, fileName);
-                lines.push(handledLine);
-            }else{
-                lines.push(line);
+            try{
+                lineReader.pause();
+                if(shouldHandleLine(line)){
+                    const handledLine = await handleLine(line, fileName);
+                    lines.push(handledLine);
+                    logger.log("Change Line "+ line + "by \n "+ handledLine);
+                }else{
+                    lines.push(line);
+                }
+                lineReader.resume();
+            }catch(error){
+                reportOnError(error, logger);
             }
+       
         });
 
-        lineReader.on(CLOSE_EVENT, function () {
-            logger.log("end handling file " + fileName);
+        lineReader.on(END_EVENT, function () {
+            logger.log("End handling file " + fileName);
             replaceContentOfFile(fileName, lines);
             resolve(true);
         });
         fileStream.on(ERROR_EVENT, function (error) {
-            reportOnError(error);
+            reportOnError(error, logger);
         })
     })
 }

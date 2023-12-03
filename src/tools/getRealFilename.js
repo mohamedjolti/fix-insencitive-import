@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from "path";
+import { JS_EXTENSION, TS_EXTENSION } from '../constants.js';
 import { reportOnError } from './reportOnError.js';
 
 /**
@@ -16,11 +17,26 @@ export const getRealFilename = function (filepath) {
                 reject(err);
             }
             for (let filename of filenames) {
-                if (filename.toUpperCase() == FILE_NAME.toUpperCase()) {
+                if (removeExtension(filename).toUpperCase() == removeExtension(FILE_NAME).toUpperCase()) {
                     resolve(filename);
                 }
             }
         })
     })
 
+}
+
+/**
+ * Maybe the import is without extension  "import from 'foo' " and the real file is foo.js
+ * @param {string} filename 
+ * @returns {string}
+ */
+const removeExtension = function(filename){
+    if(filename.includes(JS_EXTENSION)){
+       return filename.replace(JS_EXTENSION , "");
+    }else if(filename.includes(TS_EXTENSION)){
+        return filename.replace(TS_EXTENSION, "");
+    }else{
+        return filename;
+    }
 }

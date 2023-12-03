@@ -1,5 +1,4 @@
-const JS_EXTENSION = ".js";
-const TS_EXTENSION = ".ts";
+import { JS_EXTENSION, TS_EXTENSION } from "../constants.js";
 
 /**
  * 

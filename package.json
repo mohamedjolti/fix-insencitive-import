@@ -14,5 +14,8 @@
     "@babel/core": "^7.23.2",
     "@babel/node": "^7.22.19",
     "@babel/preset-env": "^7.23.2"
+  },
+  "dependencies": {
+    "line-by-line": "^0.1.6"
   }
 }

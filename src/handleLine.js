@@ -2,7 +2,6 @@ import { isFileExists } from "./tools/isFileExists.js";
 import path from "path";
 import { PATH_SEPARTOR } from "./constants.js";
 import { getRealFilename } from "./tools/getRealFilename.js";
-import { reportOnError } from "./tools/reportOnError.js";
 
 const SINGLE_QUOTE = "'";
 const DOUBLE_QUOTE = '"';
@@ -21,8 +20,10 @@ export const handleLine = function (line, fileName) {
     return getRealFilename(realPath).then((realFileName) => {
         if (realFileName) {
             return line.replace(lineFileBaseName, realFileName);
+        }else{
+            return line;
         }
-    }).catch(error => reportOnError(error));
+    })
 }
 
 

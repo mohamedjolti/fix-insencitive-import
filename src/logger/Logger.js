@@ -33,14 +33,19 @@ export class Logger {
      * @param {string} message 
      * @param {string} level
      */
-    async log(message, level = LoggerLevels.INFO) {
-        return await writeInFile(this.getLogFileName(), formatLogMessage(message));
+    async log(message, logLevel = LoggerLevels.INFO) {
+        return await writeInFile(this.getLogFileName(), formatLogMessage(message, logLevel));
     }
 }
 
-
-const formatLogMessage = function (message) {
-    return "Log " + getCurretDate() + "    " + " : " + message + LINE_BREAK;
+/**
+ * 
+ * @param {string} message 
+ * @param {string} logLevel 
+ * @returns {string}
+ */
+const formatLogMessage = function (message, logLevel) {
+    return "Log "+ logLevel + " : " + getCurretDate() + "    " + " : " + message + LINE_BREAK;
 }
 
 const getCurretDate = function () {
