@@ -1,4 +1,4 @@
-import { chicken } from "./subsample/chicken.js";
+import { chicken } from "./subsample/chIckIn";
 
 
 export const foo = function(){

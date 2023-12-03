@@ -1,7 +1,10 @@
-import { Logger } from "./src/logger/Logger.js";
-import { processFile } from "./src/processFile.js";
-import { readFiles } from "./src/readFiles.js";
+import { FixInsencitiveImport } from "./src/fixInsencitiveImport.js";
 
-const logger = new Logger();
-await readFiles("sample", logger);
+const fixInsencitiveImport = new FixInsencitiveImport({
+    directory : "./sample"
+})
 
+// fixInsencitiveImport.addHandleFileRule(function(filename){
+//     return filename.includes(".component.js");
+// })
+fixInsencitiveImport.execute();
