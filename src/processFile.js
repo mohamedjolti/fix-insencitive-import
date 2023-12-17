@@ -21,7 +21,9 @@ const UTF_8_ENCODING = 'utf8';
 export const processFile = async function (fileName, logger) {
     return new Promise(function (resolve) {
         let lines = [];
-        logger.log("start handling file " + fileName);
+        if(logger instanceof Logger){
+            logger.log("start handling file " + fileName);
+        }
         const fileStream = fs.createReadStream(fileName, { encoding: UTF_8_ENCODING });
         const lineReader = new  LineByLineReader(fileName);
     
@@ -36,7 +38,6 @@ export const processFile = async function (fileName, logger) {
                 if(shouldHandleLine(line)){
                     const handledLine = await handleLine(line, fileName);
                     lines.push(handledLine);
-                    logger.log("Change Line "+ line + "by \n "+ handledLine);
                 }else{
                     lines.push(line);
                 }
@@ -48,7 +49,9 @@ export const processFile = async function (fileName, logger) {
         });
 
         lineReader.on(END_EVENT, function () {
-            logger.log("End handling file " + fileName);
+            if(logger instanceof Logger){
+                logger.log("End handling file " + fileName);
+            }
             replaceContentOfFile(fileName, lines);
             resolve(true);
         });

@@ -1,4 +1,5 @@
 import { LOG_EXTENSION, LOG_FILE_NAME } from "../constants.js";
+import { createDirIfNotExist } from "../tools/createDirIfNotExist.js";
 import { createFile } from "../tools/createFile.js";
 import { writeInFile } from "../tools/writeInFile.js";
 import { LoggerLevels } from "./LoggerLevels.js";
@@ -10,7 +11,8 @@ export class Logger {
 
 
     constructor() {
-        const FILE_NAME = LOG_FILE_NAME + getCurretDate() + LOG_EXTENSION
+        const FILE_NAME = LOG_FILE_NAME + getCurretDate() + LOG_EXTENSION;
+        createDirIfNotExist(FILE_NAME);
         createFile(FILE_NAME);
         this.setLogFileName(FILE_NAME);
     }

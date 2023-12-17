@@ -1,8 +1,11 @@
 import { Logger } from "./logger/Logger.js";
 import { readFiles } from "./readFiles.js";
 import { addHandleFileRule } from "./shouldHandleFile.js"
+import { validateConfigDir } from "./validator/validateConfigDir.js";
 
 export class FixInsencitiveImport{
+
+    
     /**
      * 
      * @param {{
@@ -12,7 +15,7 @@ export class FixInsencitiveImport{
      * }} config 
      */
     constructor(config){
-        this.config = config
+        this.config = config;
     }
 
     addHandleFileRule(call){
@@ -20,10 +23,11 @@ export class FixInsencitiveImport{
     }
 
     execute(){
-        if(!this.config.directory){
-            throw new Error("Please specify the directory path");
+        validateConfigDir(this.config);
+        if(config && config.shouldLog){
+            this.logger = new Logger();
         }
-        readFiles(this.config.directory , new Logger);
+        readFiles(this.config.targetDir , this.logger);
     }
 
 }

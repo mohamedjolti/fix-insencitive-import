@@ -1,4 +1,3 @@
-import { isFileExists } from "./tools/isFileExists.js";
 import path from "path";
 import { PATH_SEPARTOR } from "./constants.js";
 import { getRealFilename } from "./tools/getRealFilename.js";
@@ -10,7 +9,7 @@ const DOUBLE_QUOTE = '"';
  * 
  * @param {string} line 
  * @param {string} fileName 
- * @returns 
+ * @returns {Promise}
  */
 export const handleLine = function (line, fileName) {
     const lineFilePath = getPathFromLine(line);

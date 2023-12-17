@@ -1,10 +1,11 @@
-import { FixInsencitiveImport } from "./src/fixInsencitiveImport.js";
+import { FixInsencitiveImport } from "./src/FixInsencitiveImport.js";
 
 const fixInsencitiveImport = new FixInsencitiveImport({
-    directory : "./sample"
+    targetDir : "./sample",
+    shouldLog : true 
 })
 
-// fixInsencitiveImport.addHandleFileRule(function(filename){
-//     return filename.includes(".component.js");
-// })
-fixInsencitiveImport.execute();
+fixInsencitiveImport.addHandleFileRule(function(filename){
+    return filename.includes(".component.js");
+})
+//fixInsencitiveImport.execute();

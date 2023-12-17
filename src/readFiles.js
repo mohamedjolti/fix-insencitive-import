@@ -10,7 +10,7 @@ import { shouldHandleFile } from "./shouldHandleFile.js";
  * @param {string} dirname 
  * @param {Logger} logger
  */
-export const readFiles = async function (dirname, logger) {
+export const readFiles = async function (dirname, logger = null) {
   fs.readdir(dirname, async function (err, filenames) {
     if (err) {
       reportOnError(err)

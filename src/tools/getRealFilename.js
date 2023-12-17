@@ -6,7 +6,7 @@ import { reportOnError } from './reportOnError.js';
 /**
  * 
  * @param {string} filepath 
- * @returns 
+ * @returns {Promise}
  */
 export const getRealFilename = function (filepath) {
     return new Promise(function (resolve, reject) {
