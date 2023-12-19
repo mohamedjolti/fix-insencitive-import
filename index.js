@@ -1,3 +1,4 @@
+import express from "express";
 import { FixInsencitiveImport } from "./src/FixInsencitiveImport.js";
 
 const fixInsencitiveImport = new FixInsencitiveImport({
@@ -5,7 +6,4 @@ const fixInsencitiveImport = new FixInsencitiveImport({
     shouldLog : true 
 })
 
-fixInsencitiveImport.addHandleFileRule(function(filename){
-    return filename.includes(".component.js");
-})
-//fixInsencitiveImport.execute();
+fixInsencitiveImport.execute();

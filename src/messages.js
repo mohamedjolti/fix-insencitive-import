@@ -1,0 +1,1 @@
+export const DIRECTORY_REQUIRED = "The targetDir property is required";

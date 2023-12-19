@@ -1,0 +1,8 @@
+Log INFO : 2023_12_19_21_43_19_353     : start handling file ./sample/example.js
+Log INFO : 2023_12_19_21_43_19_359     : End handling file ./sample/example.js
+Log INFO : 2023_12_19_21_43_19_359     : start handling file ./sample/foo.js
+Log INFO : 2023_12_19_21_43_19_361     : End handling file ./sample/foo.js
+Log INFO : 2023_12_19_21_43_19_361     : start handling file ./sample/subsample/bird.component.js
+Log INFO : 2023_12_19_21_43_19_362     : End handling file ./sample/subsample/bird.component.js
+Log INFO : 2023_12_19_21_43_19_362     : start handling file ./sample/subsample/chicken.js
+Log INFO : 2023_12_19_21_43_19_363     : End handling file ./sample/subsample/chicken.js

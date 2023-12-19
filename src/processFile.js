@@ -36,7 +36,7 @@ export const processFile = async function (fileName, logger) {
             try{
                 lineReader.pause();
                 if(shouldHandleLine(line)){
-                    const handledLine = await handleLine(line, fileName);
+                    const handledLine = await handleLine(line, fileName, logger);
                     lines.push(handledLine);
                 }else{
                     lines.push(line);

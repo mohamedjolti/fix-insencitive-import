@@ -24,7 +24,7 @@ export class FixInsencitiveImport{
 
     execute(){
         validateConfigDir(this.config);
-        if(config && config.shouldLog){
+        if(this.config && this.config.shouldLog){
             this.logger = new Logger();
         }
         readFiles(this.config.targetDir , this.logger);
