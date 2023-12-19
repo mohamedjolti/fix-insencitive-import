@@ -1,6 +1,6 @@
 {
   "name": "fix-insensitive-import",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "type": "module",
   "description": "fix insensitive import caused by FS like windows",
   "main": "src/FixInsencitiveImport.js",
@@ -16,6 +16,11 @@
     "@babel/preset-env": "^7.23.2",
     "jest": "^29.7.0"
   },
+  "keywords": [
+    "FixInsencitiveImport",
+    "fix insensitive import ",
+    "fix insensitive import in windows"
+  ],
   "dependencies": {
     "line-by-line": "^0.1.6"
     }
