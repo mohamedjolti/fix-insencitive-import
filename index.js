@@ -1,4 +1,3 @@
-import express from "express";
 import { FixInsencitiveImport } from "./src/FixInsencitiveImport.js";
 
 const fixInsencitiveImport = new FixInsencitiveImport({
