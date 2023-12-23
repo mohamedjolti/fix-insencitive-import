@@ -1,9 +1,0 @@
-Log INFO : 2023_12_19_21_44_37_482     : start handling file ./sample/example.js
-Log INFO : 2023_12_19_21_44_37_489     : End handling file ./sample/example.js
-Log INFO : 2023_12_19_21_44_37_490     : start handling file ./sample/foo.js
-Log INFO : 2023_12_19_21_44_37_491     : Replace chiCkEn by chicken.js
-Log INFO : 2023_12_19_21_44_37_492     : End handling file ./sample/foo.js
-Log INFO : 2023_12_19_21_44_37_492     : start handling file ./sample/subsample/bird.component.js
-Log INFO : 2023_12_19_21_44_37_493     : End handling file ./sample/subsample/bird.component.js
-Log INFO : 2023_12_19_21_44_37_493     : start handling file ./sample/subsample/chicken.js
-Log INFO : 2023_12_19_21_44_37_494     : End handling file ./sample/subsample/chicken.js

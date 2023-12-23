@@ -14,12 +14,13 @@ npm install fix-insensitive-import
 - 1 Create an instance of the FixInsencitiveImport :   
 the configuration is very sample , you just need to configure the target
 directory where the library will handle the files, by default the library
-create a log directory named "fix_insencitive_import_logs" where the logs are stored
+create a log directory named "fix_insencitive_import_logs" where the logs are stored 
+you can disable the logs by setting the shouldLog to false
 
 
 ```javascript
 
- import  FixInsencitiveImport  from "fix-insensitive-import";
+ import  { FixInsencitiveImport }  from "fix-insensitive-import";
 
 const fixInsencitiveImport = new FixInsencitiveImport({
     targetDir : "./sample",

@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from "path";
 import { JS_EXTENSION, TS_EXTENSION } from '../constants.js';
-import { reportOnError } from './reportOnError.js';
 
 /**
  * 
