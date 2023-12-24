@@ -1,6 +1,6 @@
 {
   "name": "fix-insensitive-import",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "type": "module",
   "description": "fix insensitive import caused by FS like windows",
   "main": "src/FixInsencitiveImport.js",
@@ -21,7 +21,11 @@
     "fix insensitive import ",
     "fix insensitive import in windows"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohamedjolti/fix-insencitive-import"
+  },
   "dependencies": {
     "line-by-line": "^0.1.6"
-    }
+  }
 }

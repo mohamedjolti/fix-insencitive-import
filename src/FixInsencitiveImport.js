@@ -3,9 +3,9 @@ import { readFiles } from "./readFiles.js";
 import { addHandleFileRule } from "./shouldHandleFile.js"
 import { validateConfigDir } from "./validator/validateConfigDir.js";
 
-export class FixInsencitiveImport{
+export class FixInsencitiveImport {
 
-    
+
     /**
      * 
      * @param {{
@@ -14,20 +14,20 @@ export class FixInsencitiveImport{
      * 
      * }} config 
      */
-    constructor(config){
+    constructor(config) {
         this.config = config;
     }
 
-    addHandleFileRule(call){
+    addHandleFileRule(call) {
         addHandleFileRule(call);
     }
 
-    execute(){
+    execute() {
         validateConfigDir(this.config);
-        if(this.config && this.config.shouldLog){
+        if (this.config && this.config.shouldLog) {
             this.logger = new Logger();
         }
-        readFiles(this.config.targetDir , this.logger);
+        readFiles(this.config.targetDir, this.logger);
     }
 
 }

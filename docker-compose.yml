@@ -8,6 +8,7 @@ services:
         - "5000:5000"
     container_name: fix-insencitive-import
     restart: always
+    command: tail -F anything
     volumes:
       - "/usr/src/app/node_modules"
       - "./:/usr/src/app"

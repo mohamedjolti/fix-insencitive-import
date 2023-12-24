@@ -15,7 +15,7 @@ export const getRealFilename = function (filepath) {
             if (err) {
                 reject(err);
             }
-            if(filenames){
+            if (filenames) {
                 for (let filename of filenames) {
                     if (removeExtension(filename).toUpperCase() == removeExtension(FILE_NAME).toUpperCase()) {
                         resolve(filename);
@@ -33,12 +33,12 @@ export const getRealFilename = function (filepath) {
  * @param {string} filename 
  * @returns {string}
  */
-const removeExtension = function(filename){
-    if(filename.includes(JS_EXTENSION)){
-       return filename.replace(JS_EXTENSION , "");
-    }else if(filename.includes(TS_EXTENSION)){
+const removeExtension = function (filename) {
+    if (filename.includes(JS_EXTENSION)) {
+        return filename.replace(JS_EXTENSION, "");
+    } else if (filename.includes(TS_EXTENSION)) {
         return filename.replace(TS_EXTENSION, "");
-    }else{
+    } else {
         return filename;
     }
 }
