@@ -33,7 +33,7 @@ export class Logger {
     /**
      * 
      * @param {string} message 
-     * @param {string} level
+     * @param {string} logLevel
      */
     async log(message, logLevel = LoggerLevels.INFO) {
         return await writeInFile(this.getLogFileName(), formatLogMessage(message, logLevel));
